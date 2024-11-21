@@ -20,6 +20,10 @@
         name: jenkins/jenkins:lts
         source: pull
 
+    - name: Create Jenkins volume
+      docker_volume:
+        name: jenkins_home
+
     - name: Run Jenkins container
       docker_container:
         name: jenkins
@@ -35,6 +39,10 @@
         name: gitea/gitea:latest
         source: pull
 
+    - name: Create Gitea volume
+      docker_volume:
+        name: gitea_data
+
     - name: Run Gitea container
       docker_container:
         name: gitea
@@ -44,7 +52,3 @@
           - "2222:22"
         volumes:
           - gitea_data:/data
-
-  volumes:
-    jenkins_home:
-    gitea_data:
