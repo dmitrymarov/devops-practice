@@ -1,0 +1,50 @@
+---
+- name: Deploy Jenkins and Gitea in containers
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: true
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Pull Jenkins image
+      docker_image:
+        name: jenkins/jenkins:lts
+        source: pull
+
+    - name: Run Jenkins container
+      docker_container:
+        name: jenkins
+        image: jenkins/jenkins:lts
+        ports:
+          - "8080:8080"
+          - "50000:50000"
+        volumes:
+          - jenkins_home:/var/jenkins_home
+
+    - name: Pull Gitea image
+      docker_image:
+        name: gitea/gitea:latest
+        source: pull
+
+    - name: Run Gitea container
+      docker_container:
+        name: gitea
+        image: gitea/gitea:latest
+        ports:
+          - "3000:3000"
+          - "2222:22"
+        volumes:
+          - gitea_data:/data
+
+  volumes:
+    jenkins_home:
+    gitea_data:
