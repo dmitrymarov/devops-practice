@@ -15,7 +15,7 @@
         state: started
         enabled: true
 
-    - name: Pull Jenkins image
+    - name: Pull Jenkins
       docker_image:
         name: jenkins/jenkins:lts
         source: pull
@@ -24,7 +24,7 @@
       docker_volume:
         name: jenkins_home
 
-    - name: Run Jenkins container
+    - name: Run Jenkins 
       docker_container:
         name: jenkins
         image: jenkins/jenkins:lts
@@ -34,7 +34,7 @@
         volumes:
           - jenkins_home:/var/jenkins_home
 
-    - name: Pull Gitea image
+    - name: Pull Gitea
       docker_image:
         name: gitea/gitea:latest
         source: pull
@@ -43,7 +43,7 @@
       docker_volume:
         name: gitea_data
 
-    - name: Run Gitea container
+    - name: Run Gitea
       docker_container:
         name: gitea
         image: gitea/gitea:latest
