@@ -7,9 +7,7 @@
 ## Структура репозитория
 ```
 monitoring/
-    ├── ansible/
-    │   ├── playbook.yml
-    │   ├── inventory.ini
+    │   ├── deploy2.yml
     │   └── roles/
     │       └── monitoring/
     │           ├── tasks/
