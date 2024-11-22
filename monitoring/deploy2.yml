@@ -1,0 +1,13 @@
+---
+- name: Deploy monitoring stack
+  hosts: localhost
+  become: true
+
+  vars: 
+    ansible_user: asuadmin
+    cadvisor_port: 8081
+    prometheus_port: 9090
+    node_exporter_port: 9100
+    monitoring_dir: /srv/monitoring
+  roles:
+    - monitoring

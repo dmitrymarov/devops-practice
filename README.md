@@ -171,4 +171,4 @@ Ubuntu-24.04 (по умолчанию)
 
 **Развернуть стека мониторинга prometheus+nodeexporter+cadvisor**
 
-[Ссылка на Readme](../monitoring/README.md)
+[Ссылка на Readme](../blob/main/monitoring/README.md)

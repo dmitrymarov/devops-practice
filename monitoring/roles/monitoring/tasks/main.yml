@@ -1,0 +1,56 @@
+---
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+
+- name: Install Docker Compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/v2.30.3/docker-compose-linux-{{ ansible_architecture }}"
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+
+- name: Verify Docker Compose installation
+  command: docker-compose --version
+  register: compose_version
+
+- name: Add user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+
+- name: Create directory for monitoring
+  file:
+    path: "{{ monitoring_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+
+- name: Deploy docker-compose.yml
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ monitoring_dir }}/docker-compose.yml"
+
+- name: Create directories for config's
+  file:
+    path: "{{ monitoring_dir }}/conf/prometheus"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+  with_items:
+    - "{{ monitoring_dir }}/conf/prometheus"
+
+- name: Deploy prometheus.yml
+  template:
+    src: prometheus.yml.j2
+    dest: "{{ monitoring_dir }}/conf/prometheus/prometheus.yml"
+
+- name: Run Docker Compose
+  docker_compose:
+    project_src: "{{ monitoring_dir }}"
+    state: present
+    restarted: yes
