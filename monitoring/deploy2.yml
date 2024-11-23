@@ -2,7 +2,6 @@
 - name: Deploy monitoring stack
   hosts: localhost
   become: true
-
   vars: 
     ansible_user: asuadmin
     cadvisor_port: 8081
@@ -11,3 +10,4 @@
     monitoring_dir: /srv/monitoring
   roles:
     - monitoring
+    - grafana

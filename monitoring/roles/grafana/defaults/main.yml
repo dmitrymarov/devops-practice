@@ -1,0 +1,17 @@
+---
+grafana_volume: /data/grafana
+grafana_volume_data: "{{ grafana_volume }}/data"
+grafana_volume_log: "{{ grafana_volume }}/log"
+grafana_volume_conf: "{{ grafana_volume }}/conf"
+grafana_volume_provisioning: "{{ grafana_volume }}/provisioning"
+grafana_volume_dashboard: "{{ grafana_volume_provisioning }}/dashboards"
+grafana_volume_datasource: "{{ grafana_volume_provisioning }}/datasource"
+grafana_volume_plugins: "{{ grafana_volume }}/plugins"
+
+grafana_image: grafana/grafana:9.2.18
+grafana_container_name: grafana
+grafana_ports:
+  - 0.0.0.0:8084:3000
+
+grafana_prometheus_url: http://prometheus:9090
+...

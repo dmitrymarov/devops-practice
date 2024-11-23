@@ -1,0 +1,89 @@
+---
+- name: Ensure Docker networks exist
+  community.docker.docker_network:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - monitoring_external
+    - monitoring_internal
+    - monitoring
+
+- name: Create directories for Grafana
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: 472
+    group: 472
+    mode: '0755'
+  loop:
+    - "{{ grafana_volume }}"
+    - "{{ grafana_volume_data }}"
+    - "{{ grafana_volume_log }}"
+    - "{{ grafana_volume_conf }}"
+    - "{{ grafana_volume_provisioning }}"
+    - "{{ grafana_volume_dashboard }}"
+    - "{{ grafana_volume_datasource }}"
+    - "{{ grafana_volume_plugins }}"
+
+- name: Copy Grafana configuration
+  ansible.builtin.template:
+    src: "grafana.ini.j2"
+    dest: "{{ grafana_volume_conf }}/grafana.ini"
+    mode: "0600"
+    owner: 472
+    group: 472
+  notify:
+    - restartContainerGrafana
+
+- name: Copy Grafana datasource
+  ansible.builtin.template:
+    src: "datasource.yml.j2"
+    dest: "{{ grafana_volume_datasource }}/datasource.yml"
+    mode: "0600"
+    owner: 472
+    group: 472
+  notify:
+    - restartContainerGrafana
+
+- name: Copy Dashboard
+  ansible.builtin.copy:
+    src: files/host.json
+    dest: "{{ grafana_volume_dashboard }}/host.json"
+    owner: 472
+    group: 472
+  notify:
+    - restartContainerGrafana
+
+- name: Start Grafana
+  community.docker.docker_container:
+    name: "{{ grafana_container_name }}"
+    image: "{{ grafana_image }}"
+    networks:
+      - name: monitoring_external
+      - name: monitoring
+      - name: monitoring_internal
+    restart_policy: on-failure
+    ports: "{{ grafana_ports }}"
+    hostname: grafana
+    volumes:
+      - "{{ grafana_volume_conf }}/grafana.ini:/etc/grafana/grafana.ini"
+      - "{{ grafana_volume_dashboard }}:/etc/grafana/provisioning/dashboard"
+      - "{{ grafana_volume_datasource }}:/etc/grafana/provisioning/datasource"
+      - "{{ grafana_volume_log }}:/var/log/grafana"
+      - "{{ grafana_volume_data }}:/var/lib/grafana"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "--quiet", "http://127.0.0.1:3000/healthz"]
+      interval: 2m
+      timeout: 5s
+      retries: 3
+      start_period: 1m
+
+- name: Import Grafana dashboards
+  community.grafana.grafana_dashboard:
+    grafana_url: "http://localhost:8084"
+    grafana_api_key: "eyJrIjoidDVEVm9DVUw0S2tLVWhTcFE5WjJDZW9pM2x1U2tPd0giLCJuIjoiYXN1YWRtaW4iLCJpZCI6MX0="
+    state: present
+    path: "{{ grafana_volume_dashboard }}/host.json"
+    overwrite: yes
+    folder: "General"  
+    commit_message: "Updated by Ansible"
