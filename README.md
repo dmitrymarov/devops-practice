@@ -172,3 +172,9 @@ Ubuntu-24.04 (по умолчанию)
 **Развернуть стека мониторинга prometheus+nodeexporter+cadvisor**
 
 [Ссылка на Readme](../main/monitoring/README.md)
+
+# Задание №3
+
+**Используя готовую роль развернуть Grafana. Удостовериться в работоспособности дашборда. Добавить все файлы плейбука в репозиторий Github в каталог Grafana.**
+
+[Ссылка на Readme](../main/monitoring/files/README.md)

@@ -81,7 +81,7 @@
 - name: Import Grafana dashboards
   community.grafana.grafana_dashboard:
     grafana_url: "http://localhost:8084"
-    grafana_api_key: "eyJrIjoidDVEVm9DVUw0S2tLVWhTcFE5WjJDZW9pM2x1U2tPd0giLCJuIjoiYXN1YWRtaW4iLCJpZCI6MX0="
+    grafana_api_key: "{{ grafana_api_key }}"
     state: present
     path: "{{ grafana_volume_dashboard }}/host.json"
     overwrite: yes
