@@ -1,0 +1,14 @@
+services:
+  gitea:
+    image: gitea/gitea:latest
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+    ports:
+      - "3030:3000"
+      - "127.0.0.1:2222:22"
+    volumes:
+      - ./gitea:/data
+      - /home/asuadmin/.ssh:/data/git/.ssh
+      - ./ssh/host_keys:/etc/ssh

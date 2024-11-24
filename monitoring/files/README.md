@@ -190,4 +190,4 @@ datasources:
 - `files/host.json`: Файл с описанием дашборда для Grafana.
 
 ### Скриншот того, что все работает: 
-![alt-текст](https://snipboard.io/jiI0e9.jpg "Скриншот рабочего дашборда")
+![alt-текст](https://snipboard.io/csVv3z.jpg "Скриншот рабочего дашборда")

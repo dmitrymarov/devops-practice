@@ -171,10 +171,30 @@ Ubuntu-24.04 (по умолчанию)
 
 **Развернуть стека мониторинга prometheus+nodeexporter+cadvisor**
 
-[Ссылка на Readme](../main/monitoring/README.md)
+[Ссылка на README](../main/monitoring/README.md)
 
 # Задание №3
 
 **Используя готовую роль развернуть Grafana. Удостовериться в работоспособности дашборда. Добавить все файлы плейбука в репозиторий Github в каталог Grafana.**
 
-[Ссылка на Readme](../main/monitoring/files/README.md)
+[Ссылка на README](../main/monitoring/files/README.md)
+
+# Задание №4
+
+**Настроить один из вариантов SSHing Shim docs, чтобы можно было склонировать репозиторий используя SSH.**
+
+[Ссылка на README](../main/SSHing/README.md)
+
+# Задание №5
+
+**В инстансе Gitea, создать организацию "practice" в который разместить следующий [репозиторий](https://github.com/Kazantsev27/CreatePDF), все коммиты должны быть перенесены в новый репозиторий. Репозиторий назвать: NewCreate.**
+
+[Ссылка на README](../main/six-to-nine/README.md)
+
+# Задание №6-8
+
++ **Создать организацию Тестовая в Jenkins и настроить интеграцию с Gitea организации practice**
++ **Добавить в репозиторий NewCreate Jenkinsfile, который будет собирать проект (выполняет mvn package)**
++ **Запустить сканирование организации practice в Jenkins. Убедиться, что NewCreate собирается**
+
+[Ссылка на README](../main/six-to-nine/seven-to-nine/README.md)
