@@ -190,4 +190,4 @@ datasources:
 - `files/host.json`: Файл с описанием дашборда для Grafana.
 
 ### Скриншот того, что все работает: 
-![alt-текст](../grafana.png "Скриншот рабочего дашборда")
+![alt-текст](../main/monitoring/files/grafana.png "Скриншот рабочего дашборда")
