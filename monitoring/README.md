@@ -187,18 +187,4 @@ scrape_configs:
       - targets: ['node_exporter:9100']
 ```
 ____
-
-
-### Установка
-
-Выполнить развертывание можно командой:
-
-```bash
-ansible-playbook deploy2.yml
-```
-
-### Доступ к сервисам
-
-* Prometheus: `http://localhost:9090`
-* Node Exporter: `http://localhost:9100`
-* cAdvisor: `http://localhost:8081`
+[Ссылка на источник](https://daffin.ru/devops/docker/monitoring/)
