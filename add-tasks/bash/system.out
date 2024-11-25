@@ -1,0 +1,365 @@
+desktop-hr0upc9
+    description: Computer
+    width: 64 bits
+    capabilities: smp vsyscall32
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-memory
+          description: System memory
+          physical id: 1
+          size: 16GiB
+     *-cpu
+          product: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+          vendor: Intel Corp.
+          physical id: 2
+          bus info: cpu@0
+          version: 6.94.3
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology cpuid pni pclmulqdq ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves md_clear flush_l1d arch_capabilities
+          configuration: microcode=4294967295
+     *-generic
+          description: System peripheral
+          product: Virtio file system
+          vendor: Red Hat, Inc.
+          physical id: 3
+          bus info: pci@64ff:00:00.0
+          version: 01
+          width: 64 bits
+          clock: 33MHz
+          capabilities: msix bus_master cap_list
+          configuration: driver=virtio-pci latency=64
+          resources: iomemory:e0-df iomemory:e0-df iomemory:c0-bf irq:0 memory:e00000000-e00000fff memory:e00001000-e00001fff memory:c00000000-dffffffff
+        *-virtio1 UNCLAIMED
+             description: Virtual I/O device
+             physical id: 0
+             bus info: virtio@1
+             configuration: driver=virtiofs
+     *-scsi:0
+          description: SCSI storage controller
+          product: Virtio 1.0 console
+          vendor: Red Hat, Inc.
+          physical id: 4
+          bus info: pci@81fa:00:00.0
+          version: 01
+          width: 64 bits
+          clock: 33MHz
+          capabilities: scsi msix bus_master cap_list
+          configuration: driver=virtio-pci latency=64
+          resources: iomemory:90-8f iomemory:90-8f iomemory:90-8f irq:0 memory:9ffe00000-9ffe00fff memory:9ffe01000-9ffe01fff memory:9ffe02000-9ffe02fff
+        *-virtio0 UNCLAIMED
+             description: Virtual I/O device
+             physical id: 0
+             bus info: virtio@0
+             configuration: driver=virtio_console
+     *-display
+          description: 3D controller
+          product: Basic Render Driver
+          vendor: Microsoft Corporation
+          physical id: 0
+          bus info: pci@f9e0:00:00.0
+          version: 00
+          width: 32 bits
+          clock: 33MHz
+          capabilities: bus_master cap_list
+          configuration: driver=dxgkrnl latency=0
+          resources: irq:0
+     *-pnp00:00
+          product: PnP device PNP0b00
+          physical id: 5
+          capabilities: pnp
+          configuration: driver=rtc_cmos
+     *-scsi:1
+          physical id: 6
+          logical name: scsi0
+        *-disk:0
+             description: SCSI Disk
+             product: Virtual Disk
+             vendor: Linux
+             physical id: 0.0.0
+             bus info: scsi@0:0.0.0
+             logical name: /dev/sda
+             version: 1.0
+             size: 388MiB
+             capabilities: extended_attributes large_files huge_files extents ext2 initialized
+             configuration: ansiversion=5 filesystem=ext2 logicalsectorsize=512 sectorsize=512 state=clean
+        *-disk:1
+             description: Linux swap volume
+             product: Virtual Disk
+             vendor: Msft
+             physical id: 0.0.1
+             bus info: scsi@0:0.0.1
+             logical name: /dev/sdb
+             version: 1
+             serial: cf82855d-dcc0-4b9e-9f1f-230462edf0ad
+             size: 4GiB
+             capacity: 4GiB
+             capabilities: swap initialized
+             configuration: ansiversion=5 filesystem=swap logicalsectorsize=512 pagesize=4096 sectorsize=4096
+        *-disk:2
+             description: EXT4 volume
+             product: Virtual Disk
+             vendor: Linux
+             physical id: 0.0.2
+             bus info: scsi@0:0.0.2
+             logical name: /dev/sdc
+             logical name: /
+             logical name: /mnt/wslg/distro
+             logical name: /var/lib/docker
+             version: 1.0
+             serial: 2bc336be-680f-425a-903b-231942b68df6
+             size: 1TiB
+             capabilities: journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+             configuration: ansiversion=5 created=2024-10-15 16:48:12 filesystem=ext4 lastmountpoint=/distro logicalsectorsize=512 modified=2024-11-25 11:17:19 mount.fstype=ext4 mount.options=rw,relatime,discard,errors=remount-ro,data=ordered mounted=2024-11-25 11:17:19 sectorsize=4096 state=mounted
+  *-usbhost:0
+       product: USB/IP Virtual Host Controller
+       vendor: Linux 5.15.167.4-microsoft-standard-WSL2 vhci_hcd
+       physical id: 1
+       bus info: usb@1
+       logical name: usb1
+       version: 5.15
+       capabilities: usb-2.00
+       configuration: driver=hub slots=8 speed=480Mbit/s
+  *-usbhost:1
+       product: USB/IP Virtual Host Controller
+       vendor: Linux 5.15.167.4-microsoft-standard-WSL2 vhci_hcd
+       physical id: 2
+       bus info: usb@2
+       logical name: usb2
+       version: 5.15
+       capabilities: usb-3.00
+       configuration: driver=hub slots=8 speed=5000Mbit/s
+  *-network
+       description: Ethernet interface
+       physical id: 3
+       logical name: eth0
+       serial: 00:15:5d:65:5f:ec
+       size: 10Gbit/s
+       capabilities: ethernet physical
+       configuration: autonegotiation=off broadcast=yes driver=hv_netvsc driverversion=5.15.167.4-microsoft-standard-W duplex=full firmware=N/A ip=172.22.170.194 link=yes multicast=yes speed=10Gbit/s
+
+----------------------------
+             CPU
+----------------------------
+
+Architecture:                         x86_64
+CPU op-mode(s):                       32-bit, 64-bit
+Address sizes:                        39 bits physical, 48 bits virtual
+Byte Order:                           Little Endian
+CPU(s):                               8
+On-line CPU(s) list:                  0-7
+Vendor ID:                            GenuineIntel
+Model name:                           Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+CPU family:                           6
+Model:                                94
+Thread(s) per core:                   2
+Core(s) per socket:                   4
+Socket(s):                            1
+Stepping:                             3
+BogoMIPS:                             6816.00
+Flags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology cpuid pni pclmulqdq ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves md_clear flush_l1d arch_capabilities
+Hypervisor vendor:                    Microsoft
+Virtualization type:                  full
+L1d cache:                            128 KiB (4 instances)
+L1i cache:                            128 KiB (4 instances)
+L2 cache:                             1 MiB (4 instances)
+L3 cache:                             8 MiB (1 instance)
+Vulnerability Gather data sampling:   Unknown: Dependent on hypervisor status
+Vulnerability Itlb multihit:          KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:                   Mitigation; PTE Inversion
+Vulnerability Mds:                    Mitigation; Clear CPU buffers; SMT Host state unknown
+Vulnerability Meltdown:               Mitigation; PTI
+Vulnerability Mmio stale data:        Mitigation; Clear CPU buffers; SMT Host state unknown
+Vulnerability Reg file data sampling: Not affected
+Vulnerability Retbleed:               Mitigation; IBRS
+Vulnerability Spec rstack overflow:   Not affected
+Vulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl and seccomp
+Vulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:             Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop
+Vulnerability Srbds:                  Unknown: Dependent on hypervisor status
+Vulnerability Tsx async abort:        Mitigation; Clear CPU buffers; SMT Host state unknown
+
+-----------------------------
+            MEMORY 
+-----------------------------
+
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       6.7Gi       6.1Gi       3.8Mi       3.1Gi       8.9Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+-----------------------------
+            DISKS 
+-----------------------------
+
+Filesystem      Size  Used Avail Use% Mounted on
+none            7.8G     0  7.8G   0% /usr/lib/modules/5.15.167.4-microsoft-standard-WSL2
+none            7.8G  4.0K  7.8G   1% /mnt/wsl
+drivers         238G  228G   11G  96% /usr/lib/wsl/drivers
+/dev/sdc       1007G  9.6G  947G   2% /
+none            7.8G  116K  7.8G   1% /mnt/wslg
+none            7.8G     0  7.8G   0% /usr/lib/wsl/lib
+rootfs          7.8G  2.2M  7.8G   1% /init
+none            7.8G  1.3M  7.8G   1% /run
+none            7.8G     0  7.8G   0% /run/lock
+none            7.8G     0  7.8G   0% /run/shm
+tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
+none            7.8G   76K  7.8G   1% /mnt/wslg/versions.txt
+none            7.8G   76K  7.8G   1% /mnt/wslg/doc
+C:\             238G  228G   11G  96% /mnt/c
+D:\             932G  785G  148G  85% /mnt/d
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/5a3c631abef66c3c63adeea892914cef3cd425e36960d8222cd264780189a2a4/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/3b3537ca946b59bb52e2da4144ba376a4b3f271311495d213fe8f24e0f43eb9a/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/d106de476961b897e1125c82c9877883946443224bf7c31f68c4010f1bdd1950/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/9ec32a98fc3569d0b88dbab53dc2841a5fff4e566b47b3dd01f06f5a94de2ae7/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/14080a5b353e7507d9aa782e077e43d8fa828726b6657f59d681f8ccf7efe8e3/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/7d63df287a9fad95acaa397e032b63276ebf33e83ffd782607801125fa843ff3/merged
+tmpfs           1.6G   20K  1.6G   1% /run/user/1000
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/8ec5d6eaa0e8b6af28f1321c1ae3a484e65a435505b1e886278206303d8f7bcc/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/0075b30c9dcfc8883a548576aac5b6b38577d6e536382cdc479a797546c02dde/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/280e34ac0c620b8d5eb22e000e7e9f8a68cc33283cfb7a04f19df07774375594/merged
+overlay        1007G  9.6G  947G   2% /var/lib/docker/overlay2/a81b00c584fa147164cd599a202d9e3f224d76e5e8443d3b3550d6800cfbd35a/merged
+
+-----------------------------
+            SYSTEM 
+-----------------------------
+
+Linux DESKTOP-HR0UPC9 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+
+-----------------------------
+            NETWORK 
+-----------------------------
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1280 qdisc mq state UP group default qlen 1000
+    link/ether 00:15:5d:65:5f:ec brd ff:ff:ff:ff:ff:ff
+    inet 172.22.170.194/20 brd 172.22.175.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::215:5dff:fe65:5fec/64 scope link 
+       valid_lft forever preferred_lft forever
+3: tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 500
+    link/none 
+    inet 10.8.0.1 peer 10.8.0.2/32 scope global tun0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::51b6:4810:5835:fa3a/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+4: br-5a73fd2ab388: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:ec:d3:9d:72 brd ff:ff:ff:ff:ff:ff
+    inet 172.21.0.1/16 brd 172.21.255.255 scope global br-5a73fd2ab388
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:ecff:fed3:9d72/64 scope link 
+       valid_lft forever preferred_lft forever
+5: br-5d2c74b4fc66: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:0f:ef:e8:a6 brd ff:ff:ff:ff:ff:ff
+    inet 172.23.0.1/16 brd 172.23.255.255 scope global br-5d2c74b4fc66
+       valid_lft forever preferred_lft forever
+6: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:e9:12:99:53 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:e9ff:fe12:9953/64 scope link 
+       valid_lft forever preferred_lft forever
+7: br-d5093c2f5a8f: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:91:d6:5a:97 brd ff:ff:ff:ff:ff:ff
+    inet 172.19.0.1/16 brd 172.19.255.255 scope global br-d5093c2f5a8f
+       valid_lft forever preferred_lft forever
+8: br-14460ebac7ea: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:93:56:d6:a4 brd ff:ff:ff:ff:ff:ff
+    inet 172.24.0.1/16 brd 172.24.255.255 scope global br-14460ebac7ea
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:93ff:fe56:d6a4/64 scope link 
+       valid_lft forever preferred_lft forever
+9: br-1767e822abb7: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:51:9e:22:29 brd ff:ff:ff:ff:ff:ff
+    inet 172.25.0.1/16 brd 172.25.255.255 scope global br-1767e822abb7
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:51ff:fe9e:2229/64 scope link 
+       valid_lft forever preferred_lft forever
+10: br-24623d5af62a: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:8f:01:70:09 brd ff:ff:ff:ff:ff:ff
+    inet 172.18.0.1/16 brd 172.18.255.255 scope global br-24623d5af62a
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:8fff:fe01:7009/64 scope link 
+       valid_lft forever preferred_lft forever
+11: br-403b023f5a75: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:98:3a:aa:06 brd ff:ff:ff:ff:ff:ff
+    inet 172.20.0.1/16 brd 172.20.255.255 scope global br-403b023f5a75
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:98ff:fe3a:aa06/64 scope link 
+       valid_lft forever preferred_lft forever
+13: vetha8cfbb1@if12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-5a73fd2ab388 state UP group default 
+    link/ether be:00:2a:e1:01:a0 brd ff:ff:ff:ff:ff:ff link-netnsid 5
+    inet6 fe80::bc00:2aff:fee1:1a0/64 scope link 
+       valid_lft forever preferred_lft forever
+15: veth4d903f3@if14: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-14460ebac7ea state UP group default 
+    link/ether 1a:41:5a:c3:60:69 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::1841:5aff:fec3:6069/64 scope link 
+       valid_lft forever preferred_lft forever
+17: vethad64933@if16: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-24623d5af62a state UP group default 
+    link/ether aa:8b:95:06:09:2b brd ff:ff:ff:ff:ff:ff link-netnsid 3
+    inet6 fe80::a88b:95ff:fe06:92b/64 scope link 
+       valid_lft forever preferred_lft forever
+19: veth330dd42@if18: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-14460ebac7ea state UP group default 
+    link/ether 76:15:48:c4:c3:39 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::7415:48ff:fec4:c339/64 scope link 
+       valid_lft forever preferred_lft forever
+21: vethdb40eda@if20: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-5a73fd2ab388 state UP group default 
+    link/ether ee:01:03:4d:a3:3a brd ff:ff:ff:ff:ff:ff link-netnsid 4
+    inet6 fe80::ec01:3ff:fe4d:a33a/64 scope link 
+       valid_lft forever preferred_lft forever
+23: veth56c04b2@if22: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-14460ebac7ea state UP group default 
+    link/ether be:c2:b2:a3:01:6a brd ff:ff:ff:ff:ff:ff link-netnsid 2
+    inet6 fe80::bcc2:b2ff:fea3:16a/64 scope link 
+       valid_lft forever preferred_lft forever
+25: veth04d8691@if24: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-14460ebac7ea state UP group default 
+    link/ether 02:62:dc:da:85:1b brd ff:ff:ff:ff:ff:ff link-netnsid 4
+    inet6 fe80::62:dcff:feda:851b/64 scope link 
+       valid_lft forever preferred_lft forever
+27: veth9839741@if26: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-1767e822abb7 state UP group default 
+    link/ether d2:ab:84:50:67:8d brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::d0ab:84ff:fe50:678d/64 scope link 
+       valid_lft forever preferred_lft forever
+29: veth8464881@if28: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-14460ebac7ea state UP group default 
+    link/ether d6:04:44:7c:9a:ca brd ff:ff:ff:ff:ff:ff link-netnsid 5
+    inet6 fe80::d404:44ff:fe7c:9aca/64 scope link 
+       valid_lft forever preferred_lft forever
+31: veth9541719@if30: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-403b023f5a75 state UP group default 
+    link/ether 72:93:97:9c:1d:da brd ff:ff:ff:ff:ff:ff link-netnsid 5
+    inet6 fe80::7093:97ff:fe9c:1dda/64 scope link 
+       valid_lft forever preferred_lft forever
+35: veth72817af@if34: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 2e:ff:31:03:88:7a brd ff:ff:ff:ff:ff:ff link-netnsid 7
+    inet6 fe80::2cff:31ff:fe03:887a/64 scope link 
+       valid_lft forever preferred_lft forever
+37: vethe6520d5@if36: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-14460ebac7ea state UP group default 
+    link/ether aa:95:cf:46:fe:5d brd ff:ff:ff:ff:ff:ff link-netnsid 7
+    inet6 fe80::a895:cfff:fe46:fe5d/64 scope link 
+       valid_lft forever preferred_lft forever
+49: veth09d3ddb@if48: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 46:19:7b:2d:78:22 brd ff:ff:ff:ff:ff:ff link-netnsid 6
+    inet6 fe80::4419:7bff:fe2d:7822/64 scope link 
+       valid_lft forever preferred_lft forever
+60: br-fed8325ae400: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:ca:d0:92:cb brd ff:ff:ff:ff:ff:ff
+    inet 172.28.0.1/16 brd 172.28.255.255 scope global br-fed8325ae400
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:caff:fed0:92cb/64 scope link 
+       valid_lft forever preferred_lft forever
+62: vethcb99fdf@if61: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-fed8325ae400 state UP group default 
+    link/ether 2e:d7:e6:7e:e9:ff brd ff:ff:ff:ff:ff:ff link-netnsid 8
+    inet6 fe80::2cd7:e6ff:fe7e:e9ff/64 scope link 
+       valid_lft forever preferred_lft forever
+63: br-373860bfe9ea: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:d1:56:b8:e0 brd ff:ff:ff:ff:ff:ff
+    inet 172.29.0.1/16 brd 172.29.255.255 scope global br-373860bfe9ea
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:d1ff:fe56:b8e0/64 scope link 
+       valid_lft forever preferred_lft forever
+189: veth15a82c0@if188: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-14460ebac7ea state UP group default 
+    link/ether 82:7d:e9:88:31:c9 brd ff:ff:ff:ff:ff:ff link-netnsid 9
+    inet6 fe80::807d:e9ff:fe88:31c9/64 scope link 
+       valid_lft forever preferred_lft forever

@@ -1,0 +1,23 @@
+services:
+  jenkins-agent:
+    image: openjdk:24-slim
+    container_name: jenkins-agent
+    working_dir: /home/jenkins/agent
+    volumes:
+      - agent-work:/home/jenkins/agent/work
+    command: >
+      /bin/bash -c "apt-get update &&
+      apt-get upgrade -y &&
+      apt-get install -y curl &&
+      curl -sO ${JENKINS_URL}/jnlpJars/agent.jar &&
+      java -jar agent.jar -url ${JENKINS_URL} -secret ${AGENT_SECRET} -name ${AGENT_NAME} -webSocket -workDir ${AGENT_WORKDIR}"
+    networks:
+      - monitoring
+    ports:
+      - "50001:50000"
+    restart: always
+volumes:
+  agent-work:
+networks:
+  monitoring:
+    external: true

@@ -1,0 +1,18 @@
+Looking in indexes: http://localhost:8086/repository/test-proxy/simple/
+Collecting requests
+  Downloading http://localhost:8086/repository/test-proxy/packages/requests/2.32.3/requests-2.32.3-py3-none-any.whl (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 kB 252.2 MB/s eta 0:00:00
+Collecting charset-normalizer<4,>=2 (from requests)
+  Downloading http://localhost:8086/repository/test-proxy/packages/charset-normalizer/3.4.0/charset_normalizer-3.4.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (143 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 143.8/143.8 kB 361.9 MB/s eta 0:00:00
+Collecting idna<4,>=2.5 (from requests)
+  Downloading http://localhost:8086/repository/test-proxy/packages/idna/3.10/idna-3.10-py3-none-any.whl (70 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.4/70.4 kB 363.2 MB/s eta 0:00:00
+Collecting urllib3<3,>=1.21.1 (from requests)
+  Downloading http://localhost:8086/repository/test-proxy/packages/urllib3/2.2.3/urllib3-2.2.3-py3-none-any.whl (126 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.3/126.3 kB 394.8 MB/s eta 0:00:00
+Collecting certifi>=2017.4.17 (from requests)
+  Downloading http://localhost:8086/repository/test-proxy/packages/certifi/2024.8.30/certifi-2024.8.30-py3-none-any.whl (167 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 167.3/167.3 kB 428.5 MB/s eta 0:00:00
+Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests
+Successfully installed certifi-2024.8.30 charset-normalizer-3.4.0 idna-3.10 requests-2.32.3 urllib3-2.2.3
