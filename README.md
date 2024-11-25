@@ -5,7 +5,7 @@
 
 ---
 
-Все выполняется на Win 10 под WSL 2.0 Ubuntu-24.04
+Все выполняется на Win 10 под WSL 2 Ubuntu-24.04
 
 ```powershell
 PS C:\Users\marov> wsl --version
